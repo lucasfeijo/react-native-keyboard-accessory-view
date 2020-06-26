@@ -5,8 +5,8 @@ import {
   KeyboardEvent,
   LayoutAnimation,
   ScaledSize,
-  useWindowDimensions,
 } from 'react-native'
+import { useDimensions } from '@react-native-community/hooks'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 /**
@@ -19,7 +19,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
  */
 export const useKeyboardDimensions = () => {
   const { bottom } = useSafeAreaInsets()
-  const { height } = useWindowDimensions()
+  const { height } = useDimensions().window
   const [keyboardEndPositionY, setKeyboardEndPositionY] = React.useState(height)
   const [keyboardHeight, setKeyboardHeight] = React.useState(0)
   const [
